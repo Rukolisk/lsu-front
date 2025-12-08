@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+:root {
+  /* Light Mode par défaut */
+  --white: #ffffff;
+  --brown-medium: #e6d9d2;
+  --brown-warm: #a47764;
+  --brown-dark: #3a2d2b;
+  --dark: #000000;
+}
+
+/* Dark Mode */
+.dark-mode {
+  --white: #ffffff;
+  --brown-medium: #e6d9d2;
+  --brown-warm: #a47764;
+  --brown-dark: #3a2d2b;
+  --dark: #000000;
+}
