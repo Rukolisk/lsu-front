@@ -1,0 +1,41 @@
+.background-carousel {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  opacity: 0.3;
+}
+
+.carousel-track {
+  gap: 10px;
+  display: flex;
+  width: 200%;
+  height: 100%;
+  animation: slide 23s linear infinite;
+}
+
+.carousel-track img {
+  width: 200px;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+img {
+  display: block;
+  width: 100%;
+  z-index: 1;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

@@ -2,11 +2,100 @@
   <h1 class="header-title" routerLink="">EMSSO</h1>
   <nav class="header-nav">
     <a class="nav-link" routerLink="">Accueil</a>
-    <a class="nav-link" routerLink="products">Produits</a>
+    <div class="dropdown">
+      <a class="nav-link">Explorer</a>
+      <div class="dropdown-menu">
+        <div class="dropdown-column">
+          <div class="dropdown-column-title">Catégories</div>
+          <a routerLink="products">Produits</a>
+          <a routerLink="categories">Catégories</a>
+          <a routerLink="favoris">Favoris</a>
+          <a routerLink="nouveautes">Nouveautés</a>
+        </div>
+        <div class="dropdown-column">
+          <div class="dropdown-column-title">Catégories</div>
+
+          <a routerLink="brands">Marques</a>
+          <a routerLink="sales">Promotions</a>
+          <a routerLink="top-rated">Meilleures évaluations</a>
+        </div>
+        <div class="dropdown-column">
+          <div class="dropdown-column-title">Catégories</div>
+
+          <a routerLink="new-arrivals">Nouveaux arrivages</a>
+          <a routerLink="best-sellers">Meilleures ventes</a>
+          <a routerLink="collections">Collections</a>
+        </div>
+      </div>
+    </div>
+
     <a class="nav-link" routerLink="about">Contact</a>
     <a class="nav-link" routerLink="contact">À propos</a>
   </nav>
   <button class="mode-toggle" (click)="toggleDarkMode()">
-    <div>test</div>
+    <div>dark/light</div>
   </button>
 </header>
+<style>
+  .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--dark);
+    color: var(--white);
+  }
+  .header-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .header-nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .nav-link {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .nav-link:hover {
+    text-decoration: underline;
+  }
+  .mode-toggle {
+    background: none;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  .mode-toggle:hover {
+    text-decoration: underline;
+  }
+  .dropdown {
+    position: relative;
+  }
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--brown-medium);
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    gap: 2rem;
+  }
+  .dropdown:hover .dropdown-menu {
+    display: flex;
+  }
+  .dropdown-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .dropdown-column-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+  }
+</style>

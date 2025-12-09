@@ -1,0 +1,13 @@
+<div class="background-carousel">
+  <div class="carousel-track">
+    <!-- PREMIER BLOC -->
+    <ng-container *ngFor="let img of images; let i = index">
+      <img [src]="img" />
+    </ng-container>
+
+    <!-- DUPLICATION POUR CONTINUITÉ -->
+    <ng-container *ngFor="let img of images; let i = index">
+      <img [src]="img" />
+    </ng-container>
+  </div>
+</div>
