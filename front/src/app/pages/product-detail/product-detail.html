@@ -1,0 +1,61 @@
+<div class="product-detail">
+  <h1 class="product-detail-title">{{ product?.name }}</h1>
+  <div class="product-detail-content">
+    <div class="product-detail-image">
+      <img [src]="product?.imageUrl" alt="{{ product?.name }}" />
+    </div>
+    <div class="product-detail-info">
+      <p class="product-detail-description">{{ product?.description }}</p>
+      <p class="product-detail-price">Prix: ${{ product?.price }}</p>
+      <button class="add-to-cart-button">Ajouter au panier</button>
+    </div>
+  </div>
+</div>
+<style>
+  .product-detail {
+    padding: 20px;
+  }
+
+  .product-detail-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .product-detail-content {
+    display: flex;
+    gap: 20px;
+  }
+
+  .product-detail-image img {
+    max-width: 400px;
+    border-radius: 8px;
+  }
+
+  .product-detail-info {
+    flex: 1;
+  }
+
+  .product-detail-description {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .product-detail-price {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .add-to-cart-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .add-to-cart-button:hover {
+    background-color: #0056b3;
+  }
+</style>

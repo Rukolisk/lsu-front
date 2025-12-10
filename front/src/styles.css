@@ -3,6 +3,7 @@
 html,
 body {
   height: 100%;
+  overflow-x: hidden;
 }
 body {
   margin: 0;
@@ -24,4 +25,13 @@ body {
   --brown-warm: #a47764;
   --brown-dark: #3a2d2b;
   --dark: #000000;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
 }

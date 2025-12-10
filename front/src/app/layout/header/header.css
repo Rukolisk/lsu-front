@@ -1,34 +1,116 @@
+/* Conteneur global du header (flottant, centré, avec arrondis) */
 .main-header {
-  display: flex;
-  justify-content: space-between;
+  position: fixed; /* reste visible au scroll */
+  top: 20px; /* distance du haut */
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  width: 80%; /* largeur centrée, pas plein écran */
+  max-width: 1200px; /* limite propre */
+  padding: 0px 30px;
+  border-radius: 50px; /* bord arrondi */
+  border: 1px solid #eee;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* effet flottant */
+  z-index: 999; /* reste au dessus de tout */
+}
+
+/* Grid du header */
+.header-grid {
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* logo | menu centré | icônes */
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: var(--dark);
-  color: var(--white);
+  width: 100%;
 }
+
+/* Logo */
 .header-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-.header-nav {
-  display: flex;
-  gap: 1.5rem;
-}
-.nav-link {
-  color: var(--white);
-  text-decoration: none;
-  font-weight: 500;
-}
-.nav-link:hover {
-  text-decoration: underline;
-}
-.mode-toggle {
-  background: none;
-  border: none;
-  color: var(--white);
+  padding-right: 20px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300; /* Light */
+  justify-self: end;
+  font-size: 1.8rem;
   cursor: pointer;
-  font-size: 1rem;
 }
-.mode-toggle:hover {
-  text-decoration: underline;
+
+/* Navigation centrée */
+.header-nav {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300; /* Light */
+  justify-self: center;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-link {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300; /* Light */
+  text-decoration: none;
+  color: black;
+  font-size: 1.1rem;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: #8b4b2b; /* MARRON */
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Icônes à droite */
+.right-header {
+  justify-self: end;
+  display: flex;
+  gap: 12px;
+}
+
+.navicon {
+  height: 22px;
+  filter: invert(0); /* à ajuster selon le thème */
+}
+
+.icon {
+  height: 26px;
+}
+
+/* Style dropdown optionnel */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background: white;
+  top: 100%;
+  max-width: 350px;
+  overflow-x: hidden;
+  left: 0;
+  padding: 15px;
+  border: 1px solid #ddd;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link.active::after {
+  width: 100%;
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
 }

@@ -1,7 +1,20 @@
 <div class="products-container">
-  <h1 class="product-base">Notre base</h1>
-  <div class="product-base-image">
-    <img src="/basetapis.jpg" alt="Base de tapis" />
+  <div class="product-base-card">
+    <div class="product-base-header">
+      <h1 class="product-base-title">Notre base</h1>
+    </div>
+    <div class="product-base-body">
+      <div class="product-base-left">
+        <div class="product-base-description">
+          Choisissez parmi notre sélection de bases de tapis de haute qualité, conçues pour offrir
+          durabilité et confort.
+        </div>
+        <button class="add-to-cart-button">Consulter</button>
+      </div>
+      <div class="product-base-image">
+        <img class="base-img" src="/tapis/basetapis.jpg" alt="Base de tapis" />
+      </div>
+    </div>
   </div>
 
   <h1 class="products-title">Nos tapis</h1>
@@ -19,7 +32,9 @@
       <h2 class="product-name">{{ product.name }}</h2>
       <p class="product-description">{{ product.description }}</p>
       <p class="product-price">${{ product.price }}</p>
-      <button class="add-to-cart-button">Add to Cart</button>
+      <button class="add-to-cart-button" [routerLink]="['/products/', product.id]">
+        Consulter
+      </button>
     </div>
   </div>
 </div>
