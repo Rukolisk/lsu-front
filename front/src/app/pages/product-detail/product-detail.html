@@ -14,9 +14,12 @@
         {{ product?.description }}
       </div>
       <div class="button-list">
-        <button class="base-button">- 1 +</button>
-
-        <button class="base-button">JE LE VEUX</button>
+        <td class="cart-qty">
+          <button (click)="decreaseQty(item)">-</button>
+          <span>{{ item.quantity }}</span>
+          <button (click)="increaseQty(item)">+</button>
+        </td>
+        <button class="base-button" (click)="addItem()">JE LE VEUX</button>
       </div>
       <div class="base-text">
         ATTENTION ! Prévoyez une base de tapis si vous n'en avez pas encore !

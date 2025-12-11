@@ -1,0 +1,71 @@
+<div class="cart-page">
+  <!-- TABLEAU PANIER -->
+  <div class="cart-left">
+    <h1>Mon Panier</h1>
+
+    <table class="cart-table" *ngIf="cartItems.length > 0">
+      <thead>
+        <tr>
+          <th>Produit</th>
+          <th>Nom</th>
+          <th>Quantité</th>
+          <th>Prix</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let item of cartItems">
+          <td>
+            <img [src]="item.image" alt="{{ item.name }}" class="cart-img" />
+          </td>
+
+          <td class="cart-name">{{ item.name }}</td>
+
+          <td class="cart-qty">
+            <button (click)="decreaseQty(item)">-</button>
+            <span>{{ item.quantity }}</span>
+            <button (click)="increaseQty(item)">+</button>
+          </td>
+
+          <td>{{ item.price * item.quantity }} €</td>
+
+          <td>
+            <button class="delete-btn" (click)="removeFromCart(item)">🗑️</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="empty-cart" *ngIf="cartItems.length === 0">Votre panier est vide.</div>
+  </div>
+
+  <!-- RECAP PANIER -->
+  <div class="cart-right">
+    <div class="cart-summary">
+      <h2>Récapitulatif</h2>
+
+      <div class="summary-row">
+        <span>Articles :</span>
+        <span>{{ totalItems }}</span>
+      </div>
+
+      <div class="summary-row">
+        <span>Total produits :</span>
+        <span>{{ totalPrice }} €</span>
+      </div>
+
+      <div class="summary-row">
+        <span>Livraison :</span>
+        <span>{{ shippingCost }} €</span>
+      </div>
+
+      <div class="summary-total">
+        <span>Total :</span>
+        <span>{{ totalPrice + shippingCost }} €</span>
+      </div>
+
+      <button class="validate-button" (click)="pay()">Valider la commande</button>
+    </div>
+  </div>
+</div>

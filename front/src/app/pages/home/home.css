@@ -1,3 +1,7 @@
+/* ----------------------------------------------------------- */
+/* ANIMATIONS */
+/* ----------------------------------------------------------- */
+
 @keyframes slideLeft {
   0% {
     opacity: 0;
@@ -42,21 +46,17 @@
 }
 
 .feat-image img,
-.concept-image {
-  animation: softZoom 1.2s ease-out forwards;
-  opacity: 0;
-}
-
-/* Zoom au survol */
-.feat-image img:hover,
-.concept-image:hover .pinte-image:hover {
-  transform: scale(1.03);
-  transition: transform 0.4s ease;
-}
-
+.concept-image,
 .pinte-image {
   animation: softZoom 1.2s ease-out forwards;
   opacity: 0;
+}
+
+.feat-image img:hover,
+.concept-image:hover,
+.pinte-image:hover {
+  transform: scale(1.03);
+  transition: transform 0.4s ease;
 }
 
 @keyframes fadeUp {
@@ -75,7 +75,6 @@
   animation: fadeUp 0.9s ease-out forwards;
 }
 
-/* Déclinaisons avec délais */
 .fade-up.delay-1 {
   animation-delay: 0.2s;
 }
@@ -84,68 +83,6 @@
 }
 .fade-up.delay-3 {
   animation-delay: 0.6s;
-}
-
-.hero-section {
-  position: relative;
-  width: 95%;
-  height: 500px; /* ou plus si tu veux un hero plus grand */
-  top: 58px;
-  z-index: 30;
-  margin: auto;
-  border-radius: 30px;
-  background-color: var(--white);
-  color: var(--brown-medium);
-  overflow: hidden;
-
-  /* Flex pour centrer horizontalement et placer le contenu en bas */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* pousse le contenu vers le bas */
-  align-items: center; /* centre horizontalement */
-  padding-bottom: 40px; /* espace depuis le bas */
-}
-
-.hero-bg {
-  position: absolute;
-  pointer-events: none;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-/* Version titre simple */
-.hero-title-version {
-  justify-content: center;
-  text-align: center;
-}
-
-.hero-main-title {
-  padding-top: 90px;
-  position: relative;
-  z-index: 2;
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: 500;
-  font-size: 65px;
-  color: var(--white);
-  text-shadow: 1px 1px 5px var(--dark);
-  animation: textReveal 1.8s ease-out forwards;
-}
-
-.hero-content {
-  position: relative; /* au-dessus de l'image */
-  z-index: 2;
-  align-items: center;
-  display: flex;
-  width: 90%;
-}
-.left-hero {
-  width: 30%;
-  text-align: left;
-  animation: textReveal 1.8s ease-out forwards;
 }
 
 @keyframes textReveal {
@@ -158,89 +95,146 @@
     transform: translateY(0);
   }
 }
+
+/* ----------------------------------------------------------- */
+/* HERO */
+/* ----------------------------------------------------------- */
+
+.hero-section {
+  position: relative;
+  width: 95%;
+  height: 500px;
+  top: 58px;
+  margin: auto;
+  border-radius: 30px;
+  background-color: var(--white);
+  color: var(--brown-medium);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-title-version {
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-main-title {
+  padding-top: 90px;
+  z-index: 2;
+  position: relative;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 500;
+  font-size: 65px;
+  color: var(--white);
+  text-shadow: 1px 1px 5px var(--dark);
+  animation: textReveal 1.8s ease-out forwards;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 90%;
+}
+
+.left-hero {
+  width: 30%;
+  animation: textReveal 1.8s ease-out forwards;
+}
+
 .right-hero {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 200; /* ExtraLight */
-  font-size: large;
   flex: 1;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 200;
+  font-size: large;
   text-align: right;
   margin-right: 50px;
 }
+
 .hero-button {
-  display: inline-block;
   padding: 14px 32px;
   font-size: 22px;
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: 300;
-
   background: linear-gradient(135deg, var(--brown-warm), var(--brown-medium));
   color: var(--dark);
-
-  border-radius: 40px;
   border: none;
-
+  border-radius: 40px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
-  transform: translateY(0);
-
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.35s ease;
 }
 
 .hero-button:hover {
   transform: translateY(-4px) scale(1.04);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
-
   background: linear-gradient(135deg, var(--brown-medium), var(--brown-warm));
 }
+
+/* ----------------------------------------------------------- */
+/* FEATURES */
+/* ----------------------------------------------------------- */
 
 .features-section {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  margin: 0px 12%;
-  padding: 0px 50px;
+  margin: 0 12%;
+  padding: 0 50px;
 }
+
+.feature {
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
 .feat-content {
-  z-index: 2;
   position: relative;
   background-color: var(--brown-light);
-  margin-right: 50px;
   width: 70vw;
   height: 20vw;
+  margin-right: 50px;
   min-height: 10vw;
-  min-width: 250px;
   border-radius: 50px;
   box-shadow: 0 6px 18px rgba(59, 31, 16, 0.06);
 }
+
 .feat-image img {
   width: 30vw;
   height: 20vw;
   min-height: 10vw;
-  margin-right: 50px;
-
   border-radius: 50px;
-}
-.feature {
-  margin-bottom: 50px;
-  display: flex;
-  align-items: center;
+  margin-right: 50px;
 }
 
 .feature-title {
   font-family: 'Josefin Sans', sans-serif;
-  font-weight: 300; /* Light */
-  padding: 0px 50px;
-  padding-bottom: 15px;
+  font-weight: 300;
+  padding: 0 50px 15px 50px;
   font-size: 32px;
-  margin-bottom: 15px;
   color: var(--dark);
 }
+
 .feature-description {
   font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 200; /* ExtraLight */
-  padding: 0px 90px;
+  font-weight: 200;
+  padding: 0 90px;
   font-size: 24px;
   color: var(--dark);
 }
+
+/* ----------------------------------------------------------- */
+/* CONCEPT */
+/* ----------------------------------------------------------- */
 
 .concept {
   padding: 30px 20px;
@@ -249,28 +243,25 @@
 
 .concept-title {
   font-family: 'Josefin Sans', sans-serif;
-  font-weight: 300; /* Light */
-  text-align: left;
+  font-weight: 300;
   padding-left: 10vw;
   font-size: 42px;
   margin-bottom: 20px;
-  color: #333;
+  color: var(--dark);
 }
 
 .concept-content {
   display: flex;
   justify-content: space-evenly;
-
   align-items: center;
-  gap: 20px;
 }
 
 .concept-description {
   font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 100; /* ExtraLight */
+  font-weight: 100;
   font-size: 24px;
-  color: var(--dark);
   max-width: 600px;
+  color: var(--dark);
 }
 
 .concept-image {
@@ -279,29 +270,37 @@
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
+/* ----------------------------------------------------------- */
+/* NEWSLETTER */
+/* ----------------------------------------------------------- */
+
 .newsletter {
   padding: 40px 20px;
   text-align: center;
 }
+
 .newsletter-title {
   font-family: 'Josefin Sans', sans-serif;
-  font-weight: 300; /* Light */
+  font-weight: 300;
   font-size: 46px;
   margin-bottom: 10px;
   color: var(--brown-dark);
 }
+
 .newsletter-description {
   font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 200; /* ExtraLight */
+  font-weight: 200;
   font-size: 24px;
   margin-bottom: 20px;
-  color: var(--dark);
 }
+
 .newsletter-form {
   display: flex;
   justify-content: center;
   gap: 10px;
 }
+
 .newsletter-input {
   padding: 10px;
   font-size: 32px;
@@ -309,6 +308,7 @@
   border-radius: 4px;
   width: 450px;
 }
+
 .newsletter-button {
   padding: 10px 20px;
   font-size: 16px;
@@ -318,42 +318,23 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
 .newsletter-button:hover {
   background-color: var(--brown-dark);
 }
-.cta-section {
-  text-align: center;
-  padding: 50px 20px;
-}
-.cta-title {
+
+/* ----------------------------------------------------------- */
+/* PRODUITS */
+/* ----------------------------------------------------------- */
+
+.product-title h1 {
   font-family: 'Josefin Sans', sans-serif;
-  font-weight: 300; /* Light */
-  font-size: 2.5em;
-  margin-bottom: 20px;
-  color: var(--brown-dark);
-}
-.cta-description {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 200; /* ExtraLight */
-  font-size: 1.2em;
-  margin-bottom: 30px;
-  color: var(--brown-dark);
-}
-.cta-button {
-  background-color: var(--dark);
-  color: white;
-  padding: 15px 30px;
-  text-decoration: none;
-  font-size: 1.2em;
-  border-radius: 5px;
-}
-.cta-button:hover {
-  background-color: var(--brown-dark);
+  font-weight: 100;
+  font-size: 50px;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
-.line {
-  padding: 70px;
-}
 .product-list {
   display: flex;
   flex-wrap: wrap;
@@ -361,106 +342,93 @@
   justify-content: center;
   margin: 50px;
 }
-.product-card {
-  margin: 15px;
 
+.product-card {
   background-color: var(--white);
   width: 350px;
+  margin: 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-  }
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.product-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
 .product-image {
-  width: 350px;
+  width: 100%;
   height: 350px;
-}
-.product-name {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 400; /* ExtraLight */
-  text-align: left;
-  font-size: 19px;
-  margin: 10px 0;
-  margin-left: 20px;
-}
-.product-description {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 300; /* ExtraLight */
-  text-align: left;
-  font-size: 19px;
-  margin-left: 20px;
-
-  color: var(--brown-dark);
-  margin-bottom: 10px;
+  object-fit: cover;
 }
 
+.product-name,
+.product-description,
 .product-price {
   font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 200; /* ExtraLight */
   text-align: left;
   margin-left: 20px;
+}
+
+.product-name {
+  font-weight: 400;
   font-size: 19px;
+  margin-top: 10px;
+}
+.product-description {
+  font-weight: 300;
+  font-size: 19px;
+  color: var(--brown-dark);
+}
+.product-price {
   font-weight: bold;
+  font-size: 19px;
   margin-bottom: 15px;
 }
-.product-title h1 {
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: 100; /* Light */
-  text-align: center;
-  font-size: 50px;
-  margin-bottom: 15px;
-}
+
 .products-list-button {
   background: var(--brown-warm);
   color: var(--white);
   border: none;
-  align-items: center;
   border-radius: 25px;
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: 100; /* Light */
+  font-family: 'Josefin Sans';
   font-size: 26px;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: block;
-
   margin: 0 auto 20px;
   padding: 14px 32px;
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-  }
+  cursor: pointer;
+  display: block;
+  transition: 0.3s ease;
 }
+
+.products-list-button:hover {
+  transform: translateY(-2px);
+}
+
+/* ----------------------------------------------------------- */
+/* PINTEREST SECTION */
+/* ----------------------------------------------------------- */
+
 .pinte {
   padding: 30px 20px;
   background-color: var(--brown-light);
 }
 
-.pinte-title {
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: 300; /* Light */
-  font-size: 42px;
-  margin-bottom: 20px;
-  color: var(--brown-dark);
-}
-
 .pinte-content {
   display: flex;
-  justify-content: space-evenly;
-
   align-items: center;
-  gap: 20px;
+  justify-content: space-evenly;
+}
+
+.pinte-title {
+  font-family: 'Josefin Sans';
+  font-size: 42px;
+  margin-bottom: 20px;
 }
 
 .pinte-description {
-  text-align: left;
-  padding-left: 10vw;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 100; /* ExtraLight */
+  font-family: 'Roboto Condensed';
   font-size: 24px;
-  color: var(--dark);
   max-width: 600px;
 }
 
@@ -468,28 +436,56 @@
   width: 100%;
   max-width: 400px;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-.pinte-button {
-  text-decoration: none;
-  background: var(--brown-warm);
-  color: var(--white);
-  border: none;
-  align-items: center;
-  border-radius: 25px;
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: 100; /* Light */
-  font-size: 26px;
-  width: 70px;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: block;
 
-  margin: 0 auto 20px;
-  padding: 14px 32px;
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+/* ----------------------------------------------------------- */
+/* CTA */
+/* ----------------------------------------------------------- */
+
+.cta-section {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.cta-title {
+  font-family: 'Josefin Sans';
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.cta-description {
+  font-family: 'Roboto Condensed';
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  background-color: var(--dark);
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.cta-button:hover {
+  background-color: var(--brown-dark);
+}
+
+/* ----------------------------------------------------------- */
+/* LINES */
+/* ----------------------------------------------------------- */
+
+.line {
+  padding: 70px;
+}
+
+/* ----------------------------------------------------------- */
+/* RESPONSIVE */
+/* ----------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .product-card {
+    width: 100%;
   }
 }
