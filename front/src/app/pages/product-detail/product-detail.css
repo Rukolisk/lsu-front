@@ -1,0 +1,100 @@
+.product-detail {
+  padding: 20px;
+  margin: 12vw;
+  margin-top: 110px;
+}
+.base-img {
+  align-items: left;
+  text-align: left;
+  width: 40%;
+  height: 40%;
+  border-radius: 50px;
+}
+.base-content-title {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 100; /* Light */
+  font-size: 56px;
+  color: var(--brown-warm);
+  margin: 30px 0;
+  text-align: left;
+}
+.base-content {
+  text-align: left;
+  width: 40%;
+}
+.base-button {
+  text-decoration: none;
+  background: var(--brown-warm);
+  color: var(--white);
+  border: none;
+  align-items: left;
+  border-radius: 25px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 500; /* Light */
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+
+  margin: 40px 20px;
+  padding: 14px 32px;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+}
+.base-price {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 600; /* ExtraLight */
+  font-size: 32px;
+  color: var(--brown-dark);
+  margin: 40px;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+.base-text {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400; /* ExtraLight */
+  font-size: 20px;
+  color: var(--brown-dark);
+  margin: 10px;
+}
+.product-base-title {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 100; /* Light */
+  font-size: 60px;
+  color: var(--brown-warm);
+  text-align: left;
+}
+.product-base-content {
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 600px) {
+  .product-card {
+    width: 100%;
+  }
+}
+.product-base-description {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400; /* ExtraLight */
+  font-size: 25px;
+  color: var(--brown-dark);
+  margin: 30px;
+}
+.image-list {
+  display: flex;
+  flex-direction: column;
+  width: 8%;
+  margin: 0;
+  padding: 0;
+}
+.list-img {
+  width: 100%;
+  margin: 10px;
+  border-radius: 12px;
+}
+.button-list {
+  display: flex;
+}

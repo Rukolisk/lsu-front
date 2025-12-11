@@ -13,22 +13,54 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./products.css'],
 })
 export class Products implements OnInit {
-  products: Product[] | undefined = [];
+  products: Product[] = [];
   allProducts: Product[] = [];
+
   searchTerm: string = '';
+
+  // Pagination
+  itemsPerPage: number = 8;
+  currentPage: number = 1;
+  totalPages: number = 1;
 
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     this.allProducts = this.productService.getProducts();
-    this.products = [...this.allProducts];
+    this.updatePagination();
+  }
+
+  updatePagination() {
+    // nombre total de pages
+    this.totalPages = Math.ceil(this.allProducts.length / this.itemsPerPage);
+
+    // produits affichés
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+
+    this.products = this.allProducts.slice(startIndex, endIndex);
+  }
+
+  goToPage(page: number) {
+    if (page < 1 || page > this.totalPages) return;
+
+    this.currentPage = page;
+    this.updatePagination();
   }
 
   search() {
     if (this.searchTerm.trim() === '') {
-      this.products = [...this.allProducts]; // reset si barre vide
+      this.allProducts = this.productService.getProducts();
     } else {
-      this.products = this.productService.getProductsByName(this.searchTerm);
+      const product: Product[] | undefined = this.productService.getProductsByName(this.searchTerm);
+
+      if (product) {
+        this.allProducts = product;
+      }
     }
+
+    // reset page après une recherche
+    this.currentPage = 1;
+    this.updatePagination();
   }
 }

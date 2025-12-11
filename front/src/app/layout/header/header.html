@@ -1,7 +1,8 @@
 <header class="main-header">
   <div class="header-grid">
     <!-- Colonne 1 : Logo -->
-    <h1 class="header-title" routerLink="">EMSSO</h1>
+    <!--<h1 class="header-title" routerLink="">EMSSO</h1>-->
+    <img class="header-title" src="EMSSO.png" alt="EMSSO Logo" />
 
     <!-- Colonne 2 : Navigation -->
     <nav class="header-nav">
@@ -47,12 +48,8 @@
 
     <!-- Colonne 3 : Icônes droite -->
     <div class="right-header">
-      <button class="mode-toggle" (click)="toggleDarkMode()">
-        <img
-          class="icon"
-          [src]="darkMode ? 'icons/whiteToggle.png' : 'icons/darkToggle.png'"
-          alt="toggle icon"
-        />
+      <button class="mode-toggle" routerLink="panier">
+        <img class="icon" src="icons/cart.png" alt="cart icon" />
       </button>
 
       <button class="mode-toggle">

@@ -24,7 +24,9 @@
 
 /* Logo */
 .header-title {
-  padding-right: 20px;
+  padding: 12px;
+  height: 50px;
+
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 300; /* Light */
   justify-self: end;

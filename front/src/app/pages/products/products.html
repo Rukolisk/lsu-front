@@ -1,40 +1,115 @@
 <div class="products-container">
-  <div class="product-base-card">
-    <div class="product-base-header">
-      <h1 class="product-base-title">Notre base</h1>
-    </div>
-    <div class="product-base-body">
-      <div class="product-base-left">
-        <div class="product-base-description">
-          Choisissez parmi notre sélection de bases de tapis de haute qualité, conçues pour offrir
-          durabilité et confort.
-        </div>
-        <button class="add-to-cart-button">Consulter</button>
+  <h1 class="product-base-title">La Base</h1>
+  <div class="product-base-description">
+    Weighing in under 7 pounds, the Kilburn is a lightweight piece of vintage styled engineering.
+    Setting the bar as one of the loudest speakers in its class, the Kilburn is a compact,
+    stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended highs
+    for a sound that is both articulate and pronounced. The analogue knobs allow you to fine tune
+    the controls to your personal preferences while the guitar-influenced leather strap enables easy
+    and stylish travel.
+  </div>
+  <div class="product-base-content">
+    <img class="base-img" src="/tapis/basetapis.jpg" alt="Base de tapis" />
+    <div class="base-content">
+      <h1 class="base-content-title">La Base</h1>
+      <div class="base-price">200€</div>
+      <div class="base-text">
+        stout-hearted hero with a well-balanced audio which boasts a clear midrange and extended
+        highs for a sound that is both articulate and pronounced. The analogue knobs allow you to
+        fine tune the controls to your personal preferences while the guitar-influenced leather
+        strap enables easy and stylish travel.
       </div>
-      <div class="product-base-image">
-        <img class="base-img" src="/tapis/basetapis.jpg" alt="Base de tapis" />
-      </div>
+      <button class="base-button">Consulter</button>
     </div>
   </div>
+  <header class="products-header">
+    <h1 class="product-title">Les Revêtements</h1>
 
-  <h1 class="products-title">Nos tapis</h1>
-  <div class="search-bar">
-    <input
-      type="text"
-      placeholder="Rechercher un produit..."
-      [(ngModel)]="searchTerm"
-      (input)="search()"
-    />
-  </div>
+    <div class="products-tools">
+      <div class="search-bar">
+        <input
+          type="text"
+          placeholder="Rechercher un produit..."
+          [(ngModel)]="searchTerm"
+          (input)="search()"
+        />
+      </div>
+      <button class="tool-button">Trier</button>
+      <button class="tool-button">Filtre</button>
+      <span class="results-count">32 Résultats</span>
+    </div>
+  </header>
+
   <div class="product-list">
     <div class="product-card" *ngFor="let product of products">
       <img [src]="product.imageUrl" alt="{{ product.name }}" class="product-image" />
       <h2 class="product-name">{{ product.name }}</h2>
       <p class="product-description">{{ product.description }}</p>
-      <p class="product-price">${{ product.price }}</p>
-      <button class="add-to-cart-button" [routerLink]="['/products/', product.id]">
-        Consulter
-      </button>
+      <div class="priceNcart">
+        <p class="product-price">{{ product.price }}€</p>
+        <button class="add-to-cart-button" [routerLink]="['/products/', product.id]">
+          Consulter
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="pagination-container" *ngIf="totalPages > 1">
+    <button
+      class="pagination-button"
+      [disabled]="currentPage === 1"
+      (click)="goToPage(currentPage - 1)"
+    >
+      Précédent
+    </button>
+
+    <button
+      *ngFor="let page of [].constructor(totalPages); let i = index"
+      class="pagination-button"
+      [ngClass]="{ active: currentPage === i + 1 }"
+      (click)="goToPage(i + 1)"
+    >
+      {{ i + 1 }}
+    </button>
+
+    <button
+      class="pagination-button"
+      [disabled]="currentPage === totalPages"
+      (click)="goToPage(currentPage + 1)"
+    >
+      Suivant
+    </button>
+  </div>
+</div>
+
+<div class="surenchere fade-up delay-1">
+  <div class="surenchere-content">
+    <div class="surenchere-feat">
+      <img class="surenchere-logo" src="/icons/homeIcon.png" alt="Pinterest" />
+      <div class="surenchere-description">
+        <div class="surenchere-title">titre</div>
+        <div class="surenchere-subtitle">subtitre</div>
+      </div>
+    </div>
+    <div class="surenchere-feat">
+      <img class="surenchere-logo" src="/icons/homeIcon.png" alt="Pinterest" />
+      <div class="surenchere-description">
+        <div class="surenchere-title">titre</div>
+        <div class="surenchere-subtitle">subtitre</div>
+      </div>
+    </div>
+    <div class="surenchere-feat">
+      <img class="surenchere-logo" src="/icons/homeIcon.png" alt="Pinterest" />
+      <div class="surenchere-description">
+        <div class="surenchere-title">titre</div>
+        <div class="surenchere-subtitle">subtitre</div>
+      </div>
+    </div>
+    <div class="surenchere-feat">
+      <img class="surenchere-logo" src="/icons/homeIcon.png" alt="Pinterest" />
+      <div class="surenchere-description">
+        <div class="surenchere-title">titre</div>
+        <div class="surenchere-subtitle">subtitre</div>
+      </div>
     </div>
   </div>
 </div>

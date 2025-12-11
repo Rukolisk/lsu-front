@@ -1,4 +1,29 @@
 <div class="product-detail">
+  <div class="product-base-content">
+    <div class="image-list">
+      <img class="list-img" [src]="product?.imageUrl" alt="{{ product?.name }}" />
+      <img class="list-img" [src]="product?.imageUrl" alt="{{ product?.name }}" />
+      <img class="list-img" [src]="product?.imageUrl" alt="{{ product?.name }}" />
+      <img class="list-img" [src]="product?.imageUrl" alt="{{ product?.name }}" />
+    </div>
+    <img class="base-img" [src]="product?.imageUrl" alt="{{ product?.name }}" />
+    <div class="base-content">
+      <h1 class="base-content-title">{{ product?.name }}</h1>
+      <div class="base-price">{{ product?.price }}€</div>
+      <div class="base-text">
+        {{ product?.description }}
+      </div>
+      <div class="button-list">
+        <button class="base-button">- 1 +</button>
+
+        <button class="base-button">JE LE VEUX</button>
+      </div>
+      <div class="base-text">
+        ATTENTION ! Prévoyez une base de tapis si vous n'en avez pas encore !
+      </div>
+    </div>
+  </div>
+
   <h1 class="product-detail-title">{{ product?.name }}</h1>
   <div class="product-detail-content">
     <div class="product-detail-image">

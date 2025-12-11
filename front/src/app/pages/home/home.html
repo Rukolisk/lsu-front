@@ -1,107 +1,121 @@
 <div class="hero-section fade-up">
-  <!--<app-carrousel class="hero-bg"></app-carrousel>-->
   <img class="hero-bg" src="salon.jpg" alt="Hero Background" />
 
-  <div class="hero-content">
-    <h1 class="left-hero">Bienvenue sur EMSSO</h1>
-    <div class="right-hero">
-      <a class="hero-button" routerLink="products">Voir les tapis</a>
-    </div>
+  <div class="hero-content hero-title-version">
+    <h1 class="hero-main-title">L’art de changer d’ambiance</h1>
+  </div>
+</div>
+<div class="line"></div>
+
+<div class="newsletter">
+  <h2 class="newsletter-title">Restez informé</h2>
+  <p class="newsletter-description">
+    Recevez nos nouveautés, offres exclusives et conseils déco pour transformer votre intérieur en
+    un clin d’œil.
+  </p>
+  <form class="newsletter-form" (ngSubmit)="onSubscribe()">
+    <input
+      type="email"
+      class="newsletter-input"
+      placeholder="Entrez votre adresse e-mail"
+      [(ngModel)]="email"
+      name="email"
+      required
+    />
+    <button type="submit" class="newsletter-button">S'abonner</button>
+  </form>
+</div>
+<div class="line"></div>
+
+<div class="concept fade-up delay-1">
+  <h2 class="concept-title">Découvrez notre concept</h2>
+  <div class="concept-content">
+    <p class="concept-description">
+      Transformez votre espace en quelques secondes grâce à notre tapis interchangeable :
+      <br />1. Choisissez une base durable et antidérapante.<br />
+      2. Ajoutez le revêtement textile de votre choix, selon vos envies ou saisons.<br />
+      3. Changez de style à volonté sans remplacer tout le tapis.
+    </p>
+    <img src="image3.jpg" alt="Processus en Trois Étapes" class="concept-image" />
+  </div>
+</div>
+<div class="line"></div>
+
+<div class="product-title">
+  <h1>Nos produits</h1>
+</div>
+<div class="product-list">
+  <div class="product-card" *ngFor="let product of products">
+    <img
+      [routerLink]="['/products/', product.id]"
+      [src]="product.imageUrl"
+      alt="{{ product.name }}"
+      class="product-image"
+    />
+    <h2 class="product-name">{{ product.name }}</h2>
+    <p class="product-description">{{ product.description }}</p>
+    <p class="product-price">{{ product.price }}€</p>
   </div>
 </div>
 
-<div class="concept fade-up delay-1">
-  <h2 class="concept-title">Comment ça marche ?</h2>
-  <div class="concept-content">
-    <p class="concept-description">
-      Découvrez la simplicité de notre processus en trois étapes faciles pour obtenir le tapis
-      personnalisé de vos rêves. 1. Choisissez votre base de tapis parmi nos formats disponibles.<br />
-      2. Personnalisez votre tapis avec des designs uniques et attrayants.<br />
-      3. Changez votre tapis quand vous le souhaitez en sélectionnant un nouveau design.
-    </p>
-    <img src="image2.jpeg" alt="Processus en Trois Étapes" class="concept-image" />
-  </div>
-</div>
+<button class="products-list-button">Voir tout</button>
+
+<div class="line"></div>
+
 <div class="features-section fade-up delay-2">
   <div class="feature">
     <div class="feat-content">
-      <h2 class="feature-title">Créez votre tapis personnalisé</h2>
+      <h2 class="feature-title">Personnalisation infinie</h2>
       <p class="feature-description">
-        Choisissez parmi une variété de designs et personnalisez votre tapis selon vos goûts.
+        Une seule base, plusieurs styles. Changez le design de votre tapis selon vos envies, saisons
+        ou événements spéciaux.
       </p>
     </div>
     <div class="feat-image">
       <img src="image1.jpeg" alt="Tapis Personnalisé" />
     </div>
   </div>
+
   <div class="feature">
     <div class="feat-image">
-      <img src="image2.jpeg" alt="Qualité et Confort" />
+      <img src="image2.jpeg" alt="Qualité et confort" />
     </div>
     <div class="feat-content">
-      <h2 class="feature-title">Qualité et confort</h2>
+      <h2 class="feature-title">Confort et durabilité</h2>
       <p class="feature-description">
-        Nos tapis sont fabriqués avec des matériaux de haute qualité pour assurer durabilité et
-        confort.
+        Nos tapis sont conçus pour durer avec des matériaux doux, résistants et faciles à
+        entretenir.
       </p>
     </div>
   </div>
+
   <div class="feature">
     <div class="feat-content">
-      <h2 class="feature-title">Qualité et confort</h2>
+      <h2 class="feature-title">Écologique et économique</h2>
       <p class="feature-description">
-        Nos tapis sont fabriqués avec des matériaux de haute qualité pour assurer durabilité et
-        confort.
+        Réduisez les déchets et économisez : changez uniquement le revêtement, pas la base entière.
       </p>
     </div>
     <div class="feat-image">
-      <img src="image2.jpeg" alt="Qualité et Confort" />
+      <img src="image4.jpeg" alt="Durabilité et économie" />
     </div>
   </div>
 </div>
-
-<!--
-</div>
-
-<div class="features-section">
-  <div class="features-bg"><app-background-3d></app-background-3d></div>
-  <div class="feature">
-    <h2 class="feature-title">Trouver votre base</h2>
-    <p class="feature-description">
-      Choisissez l'un des nombreux formats de base de tapis que nous proposons.
-    </p>
-  </div>
-  <div class="feature">
-    <h2 class="feature-title-white">Apposez votre tapis</h2>
-    <p class="feature-description-white">
-      Personnalisez votre tapis avec des designs uniques et attrayants.
-    </p>
-  </div>
-  <div class="feature">
-    <h2 class="feature-title">Changez quand vous voulez</h2>
-    <p class="feature-description">
-      Modifiez votre tapis à tout moment en choisissant un nouveau design.
-    </p>
+<div class="pinte fade-up delay-1">
+  <div class="pinte-content">
+    <div class="pinte-description">
+      <h2 class="pinte-title">Découvrez notre pinterest</h2>
+      <p>Découvrez les design proposé par nos artistes</p>
+      <a class="pinte-button" href="#">Voir +</a>
+    </div>
+    <img src="image3.jpg" alt="Processus en Trois Étapes" class="pinte-image" />
   </div>
 </div>
-<div class="testimonials-section">
-  <h2 class="testimonials-title">Ce que disent nos utilisateurs</h2>
-  <div class="testimonial">
-    <p class="testimonial-quote">
-      "Cette application a transformé notre approche de la création d'entreprise. Nous avons pu
-      valider nos idées rapidement et efficacement."
-    </p>
-    <p class="testimonial-author">- Jean Dupont, Fondateur de StartupX</p>
-  </div>
-  <div class="testimonial">
-    <p class="testimonial-quote">
-      "Grâce à cette application, notre équipe a pu collaborer de manière transparente et itérer sur
-      notre produit en fonction des retours clients."
-    </p>
-    <p class="testimonial-author">- Marie Curie, CEO de InnovateNow</p>
-  </div>
+<app-line></app-line>
+<div class="cta-section fade-up delay-3">
+  <h2 class="cta-title">Prêt à transformer votre intérieur ?</h2>
+  <p class="cta-description">
+    Découvrez la liberté du tapis modulable et apportez style, confort et durabilité à votre maison.
+  </p>
+  <a class="cta-button" routerLink="products">Voir les tapis</a>
 </div>
-<div class="footer-cta-section">
-  <h2 class="footer-cta-title">Des idées de design à nous communiquer ?</h2>
-  <a class="footer-cta-button" routerLink="signup">Contactez nous dès maintenant</a>
-</div>-->

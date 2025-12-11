@@ -1,0 +1,6 @@
+.lineWithCircles {
+  position: relative;
+  padding: 15px 0px;
+  pointer-events: none;
+  display: block;
+}
