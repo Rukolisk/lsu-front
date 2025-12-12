@@ -16,7 +16,7 @@ export class StripeService {
     const sessionId = 'cs_test_XXXXXXXXXXXXXXXXXXXX'; // tu peux créer une session Checkout test sur ton dashboard Stripe
 
     if (stripe) {
-      window.location.href = `https://buy.stripe.com/test_4gM4gBbq77EWda480E1gs01`;
+      window.location.href = `https://buy.stripe.com/test_eVq14pdyf4sKfic0yc1gs02`;
     }
   }
 }

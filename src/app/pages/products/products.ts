@@ -72,8 +72,8 @@ export class Products implements OnInit {
     const item = {
       id: 1000,
       name: 'Base',
-      image: '/tapis/basetapis.jpg',
-      price: 200,
+      image: '/tapis/basetapis.png',
+      price: 180,
       quantity: 1,
     };
     cart.push({ ...item });
