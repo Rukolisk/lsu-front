@@ -1,153 +1,59 @@
-# lab-GlycAmed
-GlycAmed - Backend
+# Front
 
-Description
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.3.
 
-GlycAmed est une application collaborative de suivi de consommation de sucre, caféine et calories d’un étudiant nommé Amed.  
-Les étudiants peuvent signaler les boissons ou produits consommés par Amed afin de suivre ses apports en temps réel.
+## Development server
 
-Ce dépôt contient l’API backend, développée avec Node.js, Express, TypeScript, MongoDB et JWT.
+To start a local development server, run:
 
----
+```bash
+ng serve
+```
 
-## Stack technique
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-- Node.js + Express
-- TypeScript (mode strict)
-- MongoDB + Mongoose
-- JWT pour l’authentification
-- bcrypt pour le hash des mots de passe
-- dotenv pour la configuration
-- axios pour interroger l’API Open Food Facts
-- cookie-parser pour la gestion des cookies & JWT
+## Code scaffolding
 
----
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-## Structure du projet
+```bash
+ng generate component component-name
+```
 
-backend/
-├── src/
-│ ├── config/ # Connexion MongoDB
-│ ├── controllers/ # Logique des routes
-│ ├── middlewares/ # Auth JWT, validation...
-│ ├── models/ # Schémas Mongoose (User, Conso)
-│ ├── routes/ # Routes Express
-│ ├── services/ # (à venir) logique métier
-│ ├── utils/ # Fonctions utilitaires
-│ ├── index.ts # Point d'entrée du serveur
-│ └── types/ # Types et interfaces TS
-├── package.json
-├── tsconfig.json
-└── .env.example
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
+```bash
+ng generate --help
+```
 
----
+## Building
 
-## Fonctionnalités implémentées
+To build the project run:
 
-### Authentification JWT
+```bash
+ng build
+```
 
-- POST `/api/auth/register` → inscription d’un utilisateur  
-  - Données requises : `email`, `password`, `prenom`, `nom`
-  - Hash du mot de passe avec bcrypt
-- POST `/api/auth/login` → connexion + génération d’un token JWT
-- Middleware `authMiddleware` → protège les routes privées
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-### Consommations
+## Running unit tests
 
-- Modèle `Conso` :
-  ```ts
-  {
-    produit: string;
-    sucre: number;
-    cafeine: number;
-    calories: number;
-    lieu?: string;
-    notes?: string;
-    user: ObjectId; // référence au contributeur connecté
-  }
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
-    POST /api/conso → ajout d’une consommation pour le contributeur connecté
-    les nutriments sont récupérés via API Open Food Facts
+```bash
+ng test
+```
 
-    GET /api/conso/byUser → liste des consommations du contributeur connecté (/byUser/:id)
+## Running end-to-end tests
 
-    Intégration de l’API Open Food Facts :
+For end-to-end (e2e) testing, run:
 
-    https://world.openfoodfacts.org/api/v0/product/{barcode}.json
+```bash
+ng e2e
+```
 
-    Permet de récupérer automatiquement le sucre, la caféine et les calories à partir du code-barres.
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-Installation et lancement
-Prérequis
+## Additional Resources
 
-    Node.js ≥ 18
-
-    MongoDB en local ou sur Atlas
-
-    npm ou yarn
-
-Installation
-
-cd backend
-npm install
-
-Lancement du serveur
-
-npm run dev
-
-Le serveur démarre par défaut sur :
-    http://localhost:3000
-    Variables d’environnement (.env)
-
-Crée un fichier .env à la racine du backend :
-
-PORT=3000
-MONGO_URI=mongodb+srv://bastienfournier:5oEU5m6W2rI3N5x3@glycameddb.mr2jdh4.mongodb.net/GlycAmedDB?retryWrites=true&w=majority
-JWT_SECRET=changeme_really_secret
-JWT_EXPIRES_IN=1d
-
-Endpoints actuels
-    Auth
-Méthode	    Endpoint	         Description
-POST	    /api/auth/register	 Crée un utilisateur
-POST	    /api/auth/login	     Connecte un utilisateur et renvoie un JWT
-    Consommations
-Méthode	    Endpoint	                Description
-POST	    /api/conso	                Ajoute une consommation
-GET	        /api/conso/byUser	        Récupère les consommations du user courant
-GET	        /api/conso/byUser/:id	    Récupère les consommations d’un user spécifique
-GET	        /api/conso/summary/day	    Récupère les consommations du jour en paramètre
-GET	        /api/conso/summary/month	Récupère les consommations du mois en paramètre
-GET	        /api/conso/summary/week	    Récupère les consommations de la semaine en paramètre
-
-Exemple de flux complet (Postman)
-
-    Inscription
-
-POST /api/auth/register
-{
-  "prenom": "Thomas",
-  "nom": "Durand",
-  "email": "thomas@example.com",
-  "password": "azerty123"
-}
-
-Connexion
-
-POST /api/auth/login
-{
-  "email": "thomas@example.com",
-  "password": "azerty123"
-}
-
-→ renvoie un token à ajouter dans bearer token dans l'onglet Auth pour les prochaines requête
-
-Ajout de consommation
-
-POST /api/conso
-{
-  "barcode": "9002490100070",
-  "quantite": 250, //optionnel
-  "lieu": "Bibliothèque" //optionnel
-}
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
