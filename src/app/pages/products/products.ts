@@ -63,4 +63,25 @@ export class Products implements OnInit {
     this.currentPage = 1;
     this.updatePagination();
   }
+
+  addItem() {
+    // Récupérer le panier depuis localStorage
+    const cartString = localStorage.getItem('cart');
+    let cart: any[] = cartString ? JSON.parse(cartString) : [];
+
+    const item = {
+      id: 1000,
+      name: 'Base',
+      image: '/tapis/basetapis.jpg',
+      price: 200,
+      quantity: 1,
+    };
+    cart.push({ ...item });
+
+    // Sauvegarder à nouveau dans localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Optionnel : notifier l'utilisateur
+    alert(`${item.name} a été ajouté au panier !`);
+  }
 }
